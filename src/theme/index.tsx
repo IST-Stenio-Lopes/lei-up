@@ -10,13 +10,26 @@ type Props = {
 }
 
 
-export const Theme = ({ children }: Props) => {
+export const Theme = ({ children, isLoginOrRegister }: Props) => {
 
     return (
         <ThemeContainer>
-            <ThemePositionLogin>
-                {children}
-            </ThemePositionLogin>
+            {
+                isLoginOrRegister?
+
+                (
+                    <ThemePositionLogin>
+                        {children}
+                    </ThemePositionLogin>
+                )
+                :
+                (
+                    <ThemeDivider>
+                        {children}
+                    </ThemeDivider>
+                )
+            }
+           
      
         </ThemeContainer>
     
