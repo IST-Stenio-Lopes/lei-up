@@ -39,9 +39,6 @@ export const LoginPage: React.FC = () => {
     
     })
 
-
-
-
     return(
         <Theme isLoginOrRegister>
             <LogoFullSize style={{'alignSelf': 'center'}}/>
@@ -99,10 +96,8 @@ export const LoginPage: React.FC = () => {
             <QuestionAndRedirectLink
                 questionText="Não tem login? "
                 linkText="Cadastre-se"
-                action={() => navigate('/')}
+                action={() => navigate('/register')}
             />
-
-
 
         </Theme>
     )

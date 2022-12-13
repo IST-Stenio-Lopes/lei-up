@@ -1,5 +1,4 @@
-import * as Styled from './style';
-
+import * as Styled from "./style"
 
 interface IquestionAndRedirectLink{
     questionText: string,
