@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const ThemeContainer = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,11 @@ export const ThemeContainer = styled.div`
 
 export const ThemePositionLogin = styled.div`
     min-width: 312px;
-    width: 312px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
     margin-top: 50px;
 `
 

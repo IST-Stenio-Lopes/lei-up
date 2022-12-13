@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SelectLogincButton } from '../../../components/buttons/buttons';
+import { SelectLogincButton } from '../../../../components/buttons/buttons';
 import * as Styled from './style';
 
 

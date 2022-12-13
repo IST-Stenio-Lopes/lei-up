@@ -1,8 +1,8 @@
 import { Field, Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 
-import { ReactComponent as Invisible } from './assets/invisible.svg';
-import { ReactComponent as Visible } from './assets/visible.svg';
+import { ReactComponent as Invisible } from '../assets/invisible.svg';
+import { ReactComponent as Visible } from '../assets/visible.svg';
 import * as Styled from "./style"
 
 interface IinputText {

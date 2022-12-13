@@ -1,12 +1,17 @@
 import { Form, Formik } from "formik"
 import { useState } from "react"
-import { ReactComponent as LogoFullSize} from '../../assets/full-logo.svg'
-import { GenericButton } from "../../components/buttons/buttons"
-import { PasswordInput } from "../../components/login/inputs/password"
-import { TextInput } from "../../components/login/inputs/text"
-import { Theme } from "../../theme"
-import { SelectUser } from "./components/SelectUser"
+import { useNavigate } from "react-router-dom"
 import * as Yup from 'yup'
+
+import { ReactComponent as LogoFullSize } from '../../assets/full-logo.svg'
+import { GenericButton } from "../../components/buttons/buttons"
+import { PasswordInput } from "../../components/login/inputs/Password"
+import { TextInput } from "../../components/login/inputs/Text"
+import { Theme } from "../../theme"
+import { QuestionAndRedirectLink } from "./components/QuestionAndRedirectLink"
+import { SelectUser } from "./components/SelectUser"
+import { SignInWithGoogleButton } from "./components/SignInWithGoogleButton"
+import * as Styled from './style';
 
 interface Ilogin{
     user: string,
@@ -20,7 +25,8 @@ const initialValues: Ilogin = {
 
 export const LoginPage: React.FC = () => {
 
-    const [isClient, setIsClient] = useState<boolean>()
+    const [isClient, setIsClient] = useState<boolean>();
+    let navigate = useNavigate();
 
 
     function handleSubmitLoginClient(value: Ilogin){
@@ -33,13 +39,13 @@ export const LoginPage: React.FC = () => {
     
     })
 
-    function handleSubmitLoginAttorney(){
-        
-    }
+
 
 
     return(
         <Theme isLoginOrRegister>
+            <LogoFullSize style={{'alignSelf': 'center'}}/>
+
             <Formik
                 initialValues={initialValues}
                 validationSchema={LoginSchema}
@@ -48,8 +54,8 @@ export const LoginPage: React.FC = () => {
                 
             >{({values, errors, submitForm}) => (
                 
-                <Form>
-                    <LogoFullSize/>
+                <Form style={{'display': 'flex', 'flexDirection': 'column'}}>
+                    
                     <SelectUser setIsClientProp={setIsClient}/>
                     <TextInput
                         id="user"
@@ -67,18 +73,34 @@ export const LoginPage: React.FC = () => {
                         type="password"
                         value={!!values.password}
                     />
-
-                <GenericButton 
-                    widthPercent={100}
-                    heightPx={40}
-                    text={ 'Entrar'}
-                    action={() => submitForm()}
-                />
+                    <QuestionAndRedirectLink
+                        questionText="Esqueceu a senha? "
+                        linkText="Clique aqui"
+                        action={() => navigate('/')}
+                    />
+                    <GenericButton 
+                        widthPercent={100}
+                        heightPx={40}
+                        text={ 'Entrar'}
+                        action={() => submitForm()}
+                    />
 
                 </Form>
             )}
 
             </Formik>
+
+            <Styled.JustAnOrToDivider>
+                Ou
+            </Styled.JustAnOrToDivider>
+
+            <SignInWithGoogleButton/>
+
+            <QuestionAndRedirectLink
+                questionText="Não tem login? "
+                linkText="Cadastre-se"
+                action={() => navigate('/')}
+            />
 
 
 

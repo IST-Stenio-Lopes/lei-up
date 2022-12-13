@@ -49,9 +49,6 @@ export const TextInput = styled.p<ItextControllProps>`
     margin-top: ${(e: ItextControllProps) => e.selected? '-35px' : ''};
     margin-top: ${(e: ItextControllProps) => e.hasValue && '-35px'};
     transition: 0.3s;
-
-
-
 `
 
 export const InputTextFormikFieldStyled = styled(Field)`
@@ -62,22 +59,7 @@ export const InputTextFormikFieldStyled = styled(Field)`
     border: none;
     left: 19px;
     color: #4B4B87;
-    font-weight: 600;
-
-    ::placeholder{
-    color: #878A8C;
-    }
-
-`
-export const InputPassowordFormikFieldStyled = styled(Field)`
-    outline: 0;
-    width: calc(100% - 63px);
-    position: absolute;
-    background-color: transparent;
-    border: none;
-    left: 19px;
-    color: #4B4B87;
-    font-weight: 600;
+    font-weight: 500;
 
     ::placeholder{
     color: #878A8C;
