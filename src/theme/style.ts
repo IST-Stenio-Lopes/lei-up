@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const ThemeContainer = styled.div`
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,18 +20,26 @@ export const ThemePositionLogin = styled.div`
 `
 
 export const ThemeDivider = styled.div`
-    height: 100%;
-    margin-top: 117px; //82 do menu superior + 35 de distanciamento da página
-    padding-right: 200px;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
     display: flex;
-    flex-direction: row;
-
-    @media(max-width: 1000px) {
-        padding-right: 0;
-    }
 `
 
 
-export const ThemePage = styled.div`
+export const PurpleThemePageContainer = styled.div`
     width: 100%;
+    min-height: 100%;
+    background-color: #F4EFF4;
+`
+
+export const PurpleThemePageGradient = styled.div`
+    z-index: 0;
+    position: fixed;
+    bottom: 0;
+    height: 108px;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(108, 108, 187, 0.72) 0%, rgba(108, 108, 187, 0.36) 33.33%, rgba(108, 108, 187, 0.144) 66.67%, rgba(108, 108, 187, 0) 100%);
+    transform: rotate(180deg);
+    bottom: 0;
 `

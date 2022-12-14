@@ -1,11 +1,11 @@
 import { Theme } from "../../theme"
-import * as Styled from './style'
 
-export const DashboardPage: React.FC = () => {
+export const SettingsPage: React.FC = () => {
+
 
     return(
         <Theme isLoginOrRegister={false}>
-            
+            Settings
         </Theme>
     )
 }

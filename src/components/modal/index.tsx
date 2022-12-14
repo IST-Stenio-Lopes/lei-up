@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-
 import * as Styled from "./style";
 
 interface ModalI {

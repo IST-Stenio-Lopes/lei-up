@@ -1,37 +1,48 @@
 import { ReactNode } from "react";
-
-import { ThemeContainer, ThemeDivider, ThemePositionLogin } from "./style";
-
-// import { Container, Page } from "./style";
+import { Menu } from "../components/Menu";
+import { PurpleTheme } from "./PurplePageTheme";
+import * as Styled from "./style";
 
 type Props = {
     children: ReactNode,
-    isLoginOrRegister: boolean
+    isLoginOrRegister: boolean,
+    gradient?: boolean
 }
 
 
-export const Theme = ({ children, isLoginOrRegister }: Props) => {
+export const Theme = ({ children, isLoginOrRegister, gradient = true }: Props) => {
 
     return (
-        <ThemeContainer>
-            {
+        <Styled.ThemeContainer>
+                {
                 isLoginOrRegister?
 
                 (
-                    <ThemePositionLogin>
+                    <Styled.ThemePositionLogin>
                         {children}
-                    </ThemePositionLogin>
+                    </Styled.ThemePositionLogin>
                 )
                 :
                 (
-                    <ThemeDivider>
-                        {children}
-                    </ThemeDivider>
+                    <Styled.ThemeDivider>
+                        <PurpleTheme>
+                            <Menu>
+
+                            {children}  
+                            
+                            </Menu>
+                            {
+                                gradient && <Styled.PurpleThemePageGradient/>   
+                            }
+                        
+                        </PurpleTheme>
+                        
+                        
+                    </Styled.ThemeDivider>
                 )
             }
-           
      
-        </ThemeContainer>
+        </Styled.ThemeContainer>
     
     )
 }

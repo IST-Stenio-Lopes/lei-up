@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik'
 import { useState } from 'react'
 import * as Yup from 'yup'
+
 import { ReactComponent as LogoFullSize } from '../../assets/full-logo.svg'
 import { GenericButton } from '../../components/buttons/buttons'
 import { PasswordInput } from '../../components/login/inputs/Password'
