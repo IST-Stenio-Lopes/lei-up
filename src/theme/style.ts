@@ -26,7 +26,6 @@ export const ThemeDivider = styled.div`
     display: flex;
 `
 
-
 export const PurpleThemePageContainer = styled.div`
     width: 100%;
     min-height: 100%;

@@ -9,4 +9,5 @@ export const MenuContainer = styled.div`
 export const PageInsideMenuTheme = styled.div`
     width: calc(100vw - 400px);
     padding: 115px 200px;
+
 `

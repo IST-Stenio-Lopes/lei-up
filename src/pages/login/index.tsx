@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import * as Yup from 'yup'
 
@@ -7,6 +7,7 @@ import { ReactComponent as LogoFullSize } from '../../assets/full-logo.svg'
 import { GenericButton } from "../../components/buttons/buttons"
 import { PasswordInput } from "../../components/login/inputs/Password"
 import { TextInput } from "../../components/login/inputs/Text"
+import { AuthActions, useAuth } from "../../contexts/auth"
 import { Theme } from "../../theme"
 import { QuestionAndRedirectLink } from "./components/QuestionAndRedirectLink"
 import { SelectUser } from "./components/SelectUser"
@@ -27,10 +28,27 @@ export const LoginPage: React.FC = () => {
 
     const [isClient, setIsClient] = useState<boolean>();
     let navigate = useNavigate();
+    const {stateAuth, dispatchAuth} = useAuth();
+
+
+    useEffect(() => {
+        stateAuth.userType && navigate('/dashboard')
+    }, [stateAuth])
 
 
     function handleSubmitLoginClient(value: Ilogin){
-        console.log(value)
+        dispatchAuth({
+            type: AuthActions.setEmail,
+            payload: value.user 
+        })
+        dispatchAuth({
+            type: AuthActions.setUid,
+            payload: value.password 
+        })
+        dispatchAuth({
+            type: AuthActions.setUserType,
+            payload: isClient? 'client' : 'attorney'
+        })
     }
 
     const LoginSchema = Yup.object().shape({
@@ -39,6 +57,8 @@ export const LoginPage: React.FC = () => {
     
     })
 
+
+
     return(
         <Theme isLoginOrRegister>
             <LogoFullSize style={{'alignSelf': 'center'}}/>
@@ -46,7 +66,7 @@ export const LoginPage: React.FC = () => {
             <Formik
                 initialValues={initialValues}
                 validationSchema={LoginSchema}
-                onSubmit={(values) => {console.log(values)}}
+                onSubmit={(values) => {handleSubmitLoginClient(values)}}
                 validateOnChange={false}
                 
             >{({values, errors, submitForm}) => (

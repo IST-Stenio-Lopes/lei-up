@@ -13,6 +13,7 @@ export const LateralMenuLogo = styled.div`
     transition: 0.5s;
     align-self: center;
     margin-bottom: 66px;
+ 
 `
 export const LateralMenuContainer = styled.div`
     display: flex;
@@ -24,6 +25,7 @@ export const LateralMenuContainer = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: #FFFFFF;
     transition: 0.3s;
+    z-index: 2;
 
     :hover{
         width: 256px;

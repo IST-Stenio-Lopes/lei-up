@@ -25,7 +25,8 @@ const initialData: IAuth = {
     uid: '',
     acessToken: '',
     email: '',
-    displayName: ''
+    displayName: '',
+    userType: ''
 }
 
 const AuthContext = createContext<ContextType | undefined>(undefined);
@@ -38,6 +39,7 @@ export enum AuthActions {
     setDisplayName,
     setEmail,
     setAuth,
+    setUserType,
     reset
 }
 
@@ -51,6 +53,8 @@ const authReducer = (stateAuth: IAuth, actionAuth: ActionAuth) => {
             return { ...stateAuth, displayName: actionAuth.payload };
         case AuthActions.setEmail:
             return { ...stateAuth, email: actionAuth.payload };
+        case AuthActions.setUserType:
+            return { ...stateAuth, userType: actionAuth.payload };
         case AuthActions.setAuth:
             return { ...actionAuth.payload }
 

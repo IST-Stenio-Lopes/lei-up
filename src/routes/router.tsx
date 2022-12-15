@@ -1,7 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 
-import { DashboardPage } from "../pages/Dashboard";
-import { LoginPage } from "../pages/login";
 import { AuthRoutes } from "./auth.routes";
 import { DashboardRoutes } from "./dashboard.routes";
 import { SettingsRoutes } from "./settings.routes";
