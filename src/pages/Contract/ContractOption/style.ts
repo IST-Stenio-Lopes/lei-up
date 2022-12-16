@@ -9,6 +9,12 @@ export const ContractOptionContainer = styled.div`
     box-shadow: 0px 1px 2px #6C6CBB;
     border-radius: 8px;
     cursor: pointer;
+    scale: 1;
+    transition: 0.3s;
+
+    :hover{
+        scale: 1.05;
+    }
 `
 
 export const ContractOptionTitle = styled.p`

@@ -15,7 +15,7 @@ export const ContractOption: React.FC<IcontractOption> = ({action, Icon, informa
 
 
     return(
-        <Styled.ContractOptionContainer onClick={() => action}>
+        <Styled.ContractOptionContainer onClick={action}>
             <Icon width={56} height={56} color={'#6C6CBB'} style={{'alignSelf': 'center', 'marginTop': '72px'}}/>
 
             <Styled.ContractOptionTitle>

@@ -1,8 +1,10 @@
 import { ArrowClockwise, Eye, PencilSimple } from "phosphor-react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { PageTitle } from "../../components/PageTitle";
 import { Theme } from "../../theme"
+import { ContractModal } from "./ContractModal";
 import { ContractOption } from "./ContractOption";
 import * as Styled from './style';
 
@@ -10,8 +12,20 @@ export const ContractPage: React.FC = () => {
 
     const {contractId} = useParams();
 
+    const [typeModal, setTypeModal] = useState<'change'|'revision'>('change');
+    const [showModal, setShowModal] = useState(false);
+
+
+    function HandleShowModal(e: 'change' | 'revision'){
+        setTypeModal(e);
+        setShowModal(true)
+    }
+
     return(
         <Theme isLoginOrRegister={false} gradient>
+            {
+                showModal && <ContractModal close={() => setShowModal(false)} typeModal={typeModal}/>
+            }
             <Styled.ContractPageContainer>
             <PageTitle
                     title={`Contrato ${contractId}`}
@@ -28,14 +42,14 @@ export const ContractPage: React.FC = () => {
 
                 <ContractOption
                     Icon={PencilSimple}
-                    action={() => {}}
+                    action={() => {HandleShowModal('change')}}
                     title={"Solicitar alterações"}
                     information={"Solicitar alterações neste contrato."}
                 />
 
                 <ContractOption
                     Icon={ArrowClockwise}
-                    action={() => {}}
+                    action={() => {HandleShowModal('revision')}}
                     title={"Solicitar nova revisão"}
                     information={"Realizar nova revisão deste contrato."}
                 />
