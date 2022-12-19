@@ -1,4 +1,5 @@
 import { CaretRight, CurrencyCircleDollar, Users, X } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 
 import Modal from "../../../components/Modal"
 import { ReactComponent as ListChecks } from './assets/listchecks.svg';
@@ -9,6 +10,8 @@ interface ImodalNewQuiz{
 }
 
 export const ModalNewQuiz: React.FC<ImodalNewQuiz> = ({close}) => {
+
+    let navigate = useNavigate();
 
 
     return(
@@ -37,7 +40,7 @@ export const ModalNewQuiz: React.FC<ImodalNewQuiz> = ({close}) => {
                         Que tipo de contrato deseja solicitar?
                     </Styled.ModalNewQuizTextQuestion>
 
-                    <Styled.ModalNewQuizButton>
+                    <Styled.ModalNewQuizButton onClick={() => navigate('quiz')}>
                         <Users 
                             color="#6C6CBB"
                             width={24}

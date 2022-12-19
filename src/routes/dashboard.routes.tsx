@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/auth";
 import { ContractPage } from "../pages/Contract";
 import { DashboardAttorneyPage } from "../pages/DashboardAttorney";
 import { DashboardClientPage } from "../pages/DashboardClient";
+import { QuestionnairePage } from "../pages/Questionnaire";
 
 export const DashboardRoutes = () => {
 
@@ -20,6 +21,7 @@ export const DashboardRoutes = () => {
         <Routes>
 
             <Route path="/" element={stateAuth.userType === 'client'? <DashboardClientPage /> : <DashboardAttorneyPage/>} />
+            <Route path="/quiz" element={stateAuth.userType === 'client'? <QuestionnairePage /> : <DashboardAttorneyPage/>} />
             <Route path="/contract/:contractId" element={stateAuth.userType === 'client'? <ContractPage /> : <ContractPage/>} />
       
     
