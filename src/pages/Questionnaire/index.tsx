@@ -7,6 +7,8 @@ import { useEffect, useState, useMemo, useCallback } from "react";
 import { FormQuiz } from "./FormQuiz";
 import { FinishQuiz } from "./FinishQuiz";
 
+
+
 export const QuestionnairePage: React.FC = () => {
 
     const [answers, setAnswers] = useState<string[]>([]);

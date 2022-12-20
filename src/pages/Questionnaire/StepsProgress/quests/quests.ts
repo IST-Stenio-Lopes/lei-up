@@ -11,7 +11,7 @@ type Icontract = Istages[];
 
 
 const societyStageOne: Istages = [
-    {id: '01', question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed?'},
+    {id: '01', question: 'Nome da Empresa'},
     {id: '02', question: 'Donec ullamcorper sollicitudin malesuada. Pellentesque sit?'},
     {id: '03', question: 'Nam lacinia sapien sit amet vestibulum?'},
 ]

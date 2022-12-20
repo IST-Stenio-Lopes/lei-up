@@ -1,13 +1,16 @@
 import { Warning } from 'phosphor-react';
+import { useNavigate } from 'react-router-dom';
 
 import * as Styled from './styles';
 
 interface IrequestChangeContract{
-    close: () => void
+    close: () => void,
+    contractId: string
 }
 
-export const RequestChangeContract: React.FC<IrequestChangeContract> = ({close}) => {
+export const RequestChangeContract: React.FC<IrequestChangeContract> = ({close, contractId}) => {
 
+    let navigate = useNavigate();
 
     return(
         <Styled.ContractModalContent>
@@ -24,7 +27,7 @@ export const RequestChangeContract: React.FC<IrequestChangeContract> = ({close})
                 <Styled.ContractModalButton type='cancel' onClick={close}>
                     Cancelar
                 </Styled.ContractModalButton>
-                <Styled.ContractModalButton type='confirm'>
+                <Styled.ContractModalButton type='confirm' onClick={() => navigate(`/dashboard/contractview/${contractId}`, {state: {edit: true}})}>
                     Continuar
                 </Styled.ContractModalButton>
             </Styled.ContractModalButtonsContainer>

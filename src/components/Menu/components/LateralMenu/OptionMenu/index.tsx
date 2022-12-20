@@ -1,5 +1,6 @@
 import { IconProps } from "phosphor-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
+import { useLocation } from "react-router-dom";
 
 import * as Styled from './style'
 
@@ -14,7 +15,9 @@ interface IoptionMenu{
 
 export const OptionMenu: React.FC<IoptionMenu> = ({localPathName, currentPathName, title, Icon, action}) => {
 
-    const active = localPathName === currentPathName;
+    // const location = useLocation()
+
+    const active = currentPathName.includes(localPathName);
 
     const iconColor = active? '#fff' : '#4B4B87';
 

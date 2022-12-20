@@ -7,10 +7,11 @@ import * as Styled from './styled';
 
 interface IcontractModal{
     typeModal: 'change'|'revision',
-    close: () => void
+    close: () => void,
+    contractId: string
 }
 
-export const ContractModal: React.FC<IcontractModal> = ({typeModal, close}) => {
+export const ContractModal: React.FC<IcontractModal> = ({typeModal, close, contractId}) => {
 
     return(
         <Modal>
@@ -30,7 +31,7 @@ export const ContractModal: React.FC<IcontractModal> = ({typeModal, close}) => {
             {
                 typeModal === 'change'?
 
-                (<RequestChangeContract close={close}/>) : (<RequestRevisionContract close={close}/>)
+                (<RequestChangeContract close={close} contractId={contractId}/>) : (<RequestRevisionContract close={close}/>)
             }
             
 
